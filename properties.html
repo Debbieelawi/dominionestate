@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Properties — Dominion Real Estate</title>
+    <meta name="description" content="Explore Dominion Real Estate's curated collection of luxury residential, commercial and investment properties across Nigeria.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ivory: #F5F0E8;
+            --beige: #DED0BC;
+            --bronze: #A77C50;
+            --charcoal: #292722;
+            --white: #FFFFFF;
+            --stone: #8C8174;
+            --bronze-light: #C29B6E;
+            --transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--ivory);
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--bronze);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            border-bottom: 1px solid rgba(167, 124, 80, 0.3);
+            padding-bottom: 0.4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border: 1.5px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            background: transparent;
+            font-family: 'Manrope', sans-serif;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--bronze);
+            color: var(--white);
+            border-color: var(--bronze);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--bronze);
+            border-color: var(--bronze);
+        }
+
+        .btn-outline {
+            border-color: var(--bronze);
+            color: var(--bronze);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bronze);
+            color: var(--white);
+        }
+
+        .btn-light {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-light:hover {
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* ---------- NAVIGATION ---------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--ivory);
+            box-shadow: var(--shadow-sm);
+            padding: 0.7rem 0;
+        }
+
+        .navbar:not(.scrolled) .nav-links a {
+            color: var(--white);
+            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+        }
+
+        .navbar:not(.scrolled) .menu-toggle {
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--charcoal);
+        }
+
+        .navbar.scrolled .menu-toggle {
+            color: var(--charcoal);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            transition: var(--transition);
+            filter: brightness(0) invert(1);
+        }
+
+        .navbar.scrolled .logo img {
+            filter: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--bronze);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 1rem;
+        }
+
+        .nav-cta .btn-primary {
+            padding: 0.7rem 1.8rem;
+            font-size: 0.8rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* ---------- PAGE HERO ---------- */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        .page-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.4) saturate(0.8);
+            pointer-events: none;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(105deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 3;
+            color: var(--white);
+            max-width: 750px;
+            padding: 8rem 0 4rem;
+        }
+
+        .page-hero-content .eyebrow {
+            color: var(--bronze-light);
+            border-bottom-color: rgba(194, 155, 110, 0.5);
+        }
+
+        .page-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* ---------- FILTER BAR ---------- */
+        .filter-section {
+            background: var(--white);
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(140, 129, 116, 0.15);
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-header h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr) auto;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .filter-group label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--stone);
+            font-weight: 600;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 0.75rem 0.8rem;
+            border: 1px solid rgba(140, 129, 116, 0.3);
+            background: var(--ivory);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            border-radius: 2px;
+            outline: none;
+            transition: var(--transition);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C8174' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            background-size: 1rem;
+        }
+
+        .filter-group input {
+            background-image: none;
+            padding-right: 0.8rem;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            border-color: var(--bronze);
+            box-shadow: 0 0 0 3px rgba(167, 124, 80, 0.1);
+        }
+
+        .btn-search {
+            padding: 0.75rem 2rem;
+            background: var(--bronze);
+            color: var(--white);
+            border: 1.5px solid var(--bronze);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Manrope', sans-serif;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .btn-search:hover {
+            background: transparent;
+            color: var(--bronze);
+        }
+
+        /* ---------- PROPERTY GRID ---------- */
+        .properties-section {
+            background: var(--ivory);
+            padding-top: 4rem;
+        }
+
+        .properties-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .properties-count {
+            font-size: 0.9rem;
+            color: var(--stone);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .property-image {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .property-card:hover .property-image img {
+            transform: scale(1.05);
+        }
+
+        .property-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--bronze);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.9rem;
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        .property-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(41, 39, 34, 0.85);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        .property-info {
+            padding: 1.8rem 1.5rem 1.5rem;
+        }
+
+        .property-info h4 {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .property-location {
+            font-size: 0.9rem;
+            color: var(--stone);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .property-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .property-specs {
+            display: flex;
+            gap: 1.2rem;
+            font-size: 0.8rem;
+            color: var(--stone);
+            padding-top: 1rem;
+            border-top: 1px solid rgba(140, 129, 116, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .property-specs i {
+            margin-right: 0.3rem;
+            color: var(--bronze);
+        }
+
+        /* ---------- NO RESULTS ---------- */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 1rem;
+            display: none;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: var(--bronze);
+            margin-bottom: 1rem;
+        }
+
+        .no-results h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results p {
+            color: var(--stone);
+        }
+
+        /* ---------- PROPERTY MODAL ---------- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--ivory);
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 4px;
+            position: relative;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--charcoal);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--bronze);
+            transform: rotate(90deg);
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4px;
+            height: 400px;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-gallery-side {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 4px;
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+        }
+
+        .modal-body h3 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body .property-location {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-price {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .modal-description {
+            font-size: 1rem;
+            color: var(--stone);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .modal-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(140, 129, 116, 0.2);
+            border-bottom: 1px solid rgba(140, 129, 116, 0.2);
+        }
+
+        .modal-spec-item {
+            text-align: center;
+        }
+
+        .modal-spec-item i {
+            font-size: 1.4rem;
+            color: var(--bronze);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .modal-spec-item span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--stone);
+        }
+
+        .modal-spec-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .modal-amenities h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .amenity-tag {
+            background: var(--beige);
+            padding: 0.4rem 1rem;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            color: var(--charcoal);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- CTA SECTION ---------- */
+        .cta-section {
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: var(--charcoal);
+            color: var(--beige);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(222, 208, 188, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: var(--bronze-light);
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer ul a {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer ul a:hover {
+            opacity: 1;
+            color: var(--bronze-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(222, 208, 188, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background: #20b859;
+        }
+
+        /* ---------- SCROLL REVEAL ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .filter-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .btn-search {
+                grid-column: 1 / -1;
+                width: 100%;
+            }
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--ivory);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: var(--charcoal) !important;
+                text-shadow: none !important;
+            }
+
+            .navbar:not(.scrolled) .nav-links a {
+                color: var(--charcoal);
+                text-shadow: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar.scrolled .nav-links {
+                background: var(--ivory);
+            }
+
+            .nav-cta {
+                margin-left: 0;
+            }
+
+            .page-hero-content {
+                padding: 6rem 0 3rem;
+            }
+
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-gallery {
+                grid-template-columns: 1fr;
+                height: 250px;
+            }
+
+            .modal-gallery-side {
+                display: none;
+            }
+
+            .modal-specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .logo img {
+                height: 34px;
+            }
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal,
+            .stagger-children > * {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://ik.imagekit.io/nwtyxrcs8/Dominion%20Real%20Estate%20Luxe%20Logo.png" alt="Dominion Real Estate Logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#" class="active">Properties</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="nav-cta"><a href="#" class="btn btn-primary">Enquire Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+        <video class="page-hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop">
+            <source src="https://cdn.coverr.co/videos/coverr-a-luxury-house-with-a-pool-1573/1080p.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-modern-house-with-pool-1573/1080p.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="eyebrow">THE PROPERTY COLLECTION</span>
+                <h1 class="page-hero-title">Find a Space That Moves You Forward.</h1>
+                <p class="page-hero-text">Explore distinctive residential and commercial properties selected to meet different lifestyles, business requirements and investment ambitions.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- FILTER SECTION -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-header reveal">
+                <h3>Refine Your Search</h3>
+            </div>
+            <div class="filter-grid reveal">
+                <div class="filter-group">
+                    <label for="filterCategory">Property Category</label>
+                    <select id="filterCategory">
+                        <option value="all">All Categories</option>
+                        <option value="residential">Luxury Residential</option>
+                        <option value="commercial">Commercial Properties</option>
+                        <option value="investment">Investment Opportunities</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterLocation">Location</label>
+                    <select id="filterLocation">
+                        <option value="all">All Locations</option>
+                        <option value="lagos">Lagos</option>
+                        <option value="abuja">Abuja</option>
+                        <option value="port-harcourt">Port Harcourt</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterStatus">Status</label>
+                    <select id="filterStatus">
+                        <option value="all">All Status</option>
+                        <option value="for-sale">For Sale</option>
+                        <option value="for-rent">For Rent</option>
+                        <option value="off-plan">Off Plan</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterPrice">Price Range</label>
+                    <select id="filterPrice">
+                        <option value="all">Any Price</option>
+                        <option value="under-100m">Under ₦100M</option>
+                        <option value="100m-300m">₦100M – ₦300M</option>
+                        <option value="300m-600m">₦300M – ₦600M</option>
+                        <option value="above-600m">Above ₦600M</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterBedrooms">Bedrooms</label>
+                    <select id="filterBedrooms">
+                        <option value="all">Any</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+                <button class="btn-search" id="btnSearch">Find My Property</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPERTIES GRID -->
+    <section class="properties-section">
+        <div class="container">
+            <div class="properties-header reveal">
+                <div>
+                    <span class="eyebrow">CURATED LISTINGS</span>
+                    <h2 class="section-title" style="margin-bottom:0;">Properties Worth Exploring.</h2>
+                </div>
+                <div class="properties-count" id="propertiesCount">Showing 6 properties</div>
+            </div>
+
+            <div class="property-grid" id="propertyGrid">
+                <!-- Property 1 -->
+                <div class="property-card" data-category="residential" data-location="lagos" data-status="for-sale" data-price="above-600m" data-bedrooms="5" data-modal="modal-1">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop" alt="Modern villa with pool at dusk">
+                        <span class="property-tag">Residential</span>
+                        <span class="property-status">For Sale</span>
+                    </div>
+                    <div class="property-info">
+                        <h4>The Dominion Residence</h4>
+                        <div class="property-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</div>
+                        <div class="property-price">Price on request</div>
+                        <div class="property-specs">
+                            <span><i class="fas fa-bed"></i> 5 Beds</span>
+                            <span><i class="fas fa-bath"></i> 6 Baths</span>
+                            <span><i class="fas fa-car"></i> 4 Parking</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Property 2 -->
+                <div class="property-card" data-category="residential" data-location="abuja" data-status="for-sale" data-price="100m-300m" data-bedrooms="4" data-modal="modal-2">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Luxury living room interior">
+                        <span class="property-tag">Residential</span>
+                        <span class="property-status">For Sale</span>
+                    </div>
+                    <div class="property-info">
+                        <h4>Palm Heights Villa</h4>
+                        <div class="property-location"><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</div>
+                        <div class="property-price">Price on request</div>
+                        <div class="property-specs">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 5 Baths</span>
+                            <span><i class="fas fa-car"></i> 3 Parking</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Property 3 -->
+                <div class="property-card" data-category="commercial" data-location="lagos" data-status="for-rent" data-price="above-600m" data-bedrooms="0" data-modal="modal-3">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Modern commercial office space">
+                        <span class="property-tag">Commercial</span>
+                        <span class="property-status">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <h4>Dominion Business Hub</h4>
+                        <div class="property-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</div>
+                        <div class="property-price">Price on request</div>
+                        <div class="property-specs">
+                            <span><i class="fas fa-building"></i> Office</span>
+                            <span><i class="fas fa-vector-square"></i> 2,500 sqm</span>
+                            <span><i class="fas fa-car"></i> 20 Parking</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Property 4 -->
+                <div class="property-card" data-category="residential" data-location="port-harcourt" data-status="off-plan" data-price="under-100m" data-bedrooms="3" data-modal="modal-4">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Contemporary family home">
+                        <span class="property-tag">Residential</span>
+                        <span class="property-status">Off Plan</span>
+                    </div>
+                    <div class="property-info">
+                        <h4>Emerald Court Residences</h4>
+                        <div class="property-location"><i class="fas fa-map-marker-alt"></i> Port Harcourt, Nigeria</div>
+                        <div class="property-price">Price on request</div>
+                        <div class="property-specs">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 4 Baths</span>
+                            <span><i class="fas fa-car"></i> 2 Parking</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Property 5 -->
+                <div class="property-card" data-category="investment" data-location="abuja" data-status="for-sale" data-price="300m-600m" data-bedrooms="0" data-modal="modal-5">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Investment property and city skyline">
+                        <span class="property-tag">Investment</span>
+                        <span class="property-status">For Sale</span>
+                    </div>
+                    <div class="property-info">
+                        <h4>Capital Heights Development</h4>
+                        <div class="property-location"><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</div>
+                        <div class="property-price">Price on request</div>
+                        <div class="property-specs">
+                            <span><i class="fas fa-chart-line"></i> Investment</span>
+                            <span><i class="fas fa-vector-square"></i> 5,000 sqm</span>
+                            <span><i class="fas fa-file-signature"></i> C of O</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Property 6 -->
+                <div class="property-card" data-category="commercial" data-location="lagos" data-status="for-sale" data-price="300m-600m" data-bedrooms="0" data-modal="modal-6">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Modern commercial building facade">
+                        <span class="property-tag">Commercial</span>
+                        <span class="property-status">For Sale</span>
+                    </div>
+                    <div class="property-info">
+                        <h4>Victoria Trade Centre</h4>
+                        <div class="property-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</div>
+                        <div class="property-price">Price on request</div>
+                        <div class="property-specs">
+                            <span><i class="fas fa-building"></i> Commercial</span>
+                            <span><i class="fas fa-vector-square"></i> 4,200 sqm</span>
+                            <span><i class="fas fa-car"></i> 35 Parking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Results -->
+                <div class="no-results" id="noResults">
+                    <i class="fas fa-search"></i>
+                    <h3>No Properties Found</h3>
+                    <p>Try adjusting your filters to see more properties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section cta-section">
+        <div class="container">
+            <span class="eyebrow reveal" style="color:var(--bronze-light); border-bottom-color:rgba(194,155,110,0.4);">PERSONALISED SEARCH</span>
+            <h2 class="reveal">Your Next Property Could Be Closer Than You Think.</h2>
+            <p class="reveal">Tell us what you are looking for, and our team can help you explore relevant opportunities.</p>
+            <div class="reveal">
+                <a href="#" class="btn btn-primary">Request Property Assistance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DOMINION REAL ESTATE</h3>
+                    <p>Where exceptional properties meet extraordinary possibilities. Discover distinguished residential and commercial property opportunities with a more thoughtful approach to real estate.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Property Categories</h4>
+                    <ul>
+                        <li><a href="#">Residential</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Investment Opportunities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">+234 (0) 123 456 7890</a></li>
+                        <li><a href="#">info@dominionrealestate.com</a></li>
+                        <li><a href="#">Lagos, Nigeria</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Dominion Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="#" class="whatsapp-float" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- PROPERTY MODALS -->
+    <div class="modal-overlay" id="modal-1">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-gallery">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop" alt="The Dominion Residence main view">
+                <div class="modal-gallery-side">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Interior view">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2070&auto=format&fit=crop" alt="Pool view">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>The Dominion Residence</h3>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</div>
+                <div class="modal-price">Price on request</div>
+                <p class="modal-description">A Property Defined by Space and Distinction. Discover this exceptional luxury residence located in one of Lagos's most prestigious neighbourhoods. Featuring expansive living areas, a private pool, landscaped gardens and premium finishes throughout, this home offers an unparalleled lifestyle for discerning buyers.</p>
+                <div class="modal-specs-grid">
+                    <div class="modal-spec-item"><i class="fas fa-bed"></i><strong>5</strong><span>Bedrooms</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-bath"></i><strong>6</strong><span>Bathrooms</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-car"></i><strong>4</strong><span>Parking</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-vector-square"></i><strong>850</strong><span>Sq. Metres</span></div>
+                </div>
+                <div class="modal-amenities">
+                    <h4>Features & Amenities</h4>
+                    <div class="amenities-list">
+                        <span class="amenity-tag">Private Pool</span>
+                        <span class="amenity-tag">Landscaped Garden</span>
+                        <span class="amenity-tag">Smart Home</span>
+                        <span class="amenity-tag">Cinema Room</span>
+                        <span class="amenity-tag">Staff Quarters</span>
+                        <span class="amenity-tag">24/7 Security</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary">Enquire About This Property</a>
+                    <a href="#" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-2">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-gallery">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Palm Heights Villa main view">
+                <div class="modal-gallery-side">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Exterior view">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2070&auto=format&fit=crop" alt="Living area">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Palm Heights Villa</h3>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</div>
+                <div class="modal-price">Price on request</div>
+                <p class="modal-description">A refined villa in the heart of Abuja offering generous living spaces, contemporary architecture and premium finishes. Perfect for families seeking comfort, privacy and a distinguished address in Nigeria's capital city.</p>
+                <div class="modal-specs-grid">
+                    <div class="modal-spec-item"><i class="fas fa-bed"></i><strong>4</strong><span>Bedrooms</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-bath"></i><strong>5</strong><span>Bathrooms</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-car"></i><strong>3</strong><span>Parking</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-vector-square"></i><strong>620</strong><span>Sq. Metres</span></div>
+                </div>
+                <div class="modal-amenities">
+                    <h4>Features & Amenities</h4>
+                    <div class="amenities-list">
+                        <span class="amenity-tag">Garden</span>
+                        <span class="amenity-tag">Modern Kitchen</span>
+                        <span class="amenity-tag">En-suite Rooms</span>
+                        <span class="amenity-tag">Gated Estate</span>
+                        <span class="amenity-tag">Backup Power</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary">Enquire About This Property</a>
+                    <a href="#" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-3">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-gallery">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Dominion Business Hub main view">
+                <div class="modal-gallery-side">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Building exterior">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" alt="Office interior">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Dominion Business Hub</h3>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</div>
+                <div class="modal-price">Price on request</div>
+                <p class="modal-description">A premium commercial space designed for modern businesses seeking a prestigious address in Lagos. Featuring flexible floor plates, high-speed elevators and ample parking, this property is ideal for corporate headquarters, financial services and professional firms.</p>
+                <div class="modal-specs-grid">
+                    <div class="modal-spec-item"><i class="fas fa-building"></i><strong>Office</strong><span>Type</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-layer-group"></i><strong>5</strong><span>Floors</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-car"></i><strong>20</strong><span>Parking</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-vector-square"></i><strong>2,500</strong><span>Sq. Metres</span></div>
+                </div>
+                <div class="modal-amenities">
+                    <h4>Features & Amenities</h4>
+                    <div class="amenities-list">
+                        <span class="amenity-tag">High-Speed Lifts</span>
+                        <span class="amenity-tag">Backup Power</span>
+                        <span class="amenity-tag">24/7 Security</span>
+                        <span class="amenity-tag">CCTV</span>
+                        <span class="amenity-tag">Fibre Internet</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary">Enquire About This Property</a>
+                    <a href="#" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-4">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-gallery">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Emerald Court Residences main view">
+                <div class="modal-gallery-side">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Interior view">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2070&auto=format&fit=crop" alt="Garden view">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Emerald Court Residences</h3>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> Port Harcourt, Nigeria</div>
+                <div class="modal-price">Price on request</div>
+                <p class="modal-description">An off-plan residential development offering contemporary homes in a secure, well-planned community. Designed for modern family living with generous outdoor spaces and quality finishes throughout. An excellent opportunity for early buyers.</p>
+                <div class="modal-specs-grid">
+                    <div class="modal-spec-item"><i class="fas fa-bed"></i><strong>3</strong><span>Bedrooms</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-bath"></i><strong>4</strong><span>Bathrooms</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-car"></i><strong>2</strong><span>Parking</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-vector-square"></i><strong>400</strong><span>Sq. Metres</span></div>
+                </div>
+                <div class="modal-amenities">
+                    <h4>Features & Amenities</h4>
+                    <div class="amenities-list">
+                        <span class="amenity-tag">Off-Plan</span>
+                        <span class="amenity-tag">Gated Community</span>
+                        <span class="amenity-tag">Garden</span>
+                        <span class="amenity-tag">Modern Kitchen</span>
+                        <span class="amenity-tag">Parking</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary">Enquire About This Property</a>
+                    <a href="#" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-5">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-gallery">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop" alt="Capital Heights Development main view">
+                <div class="modal-gallery-side">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="City view">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Development view">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Capital Heights Development</h3>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</div>
+                <div class="modal-price">Price on request</div>
+                <p class="modal-description">A prime investment land opportunity in Abuja's rapidly developing corridor. Ideally positioned for commercial or mixed-use development, this site offers excellent connectivity and long-term growth potential for investors seeking strategic land holdings.</p>
+                <div class="modal-specs-grid">
+                    <div class="modal-spec-item"><i class="fas fa-chart-line"></i><strong>Investment</strong><span>Type</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-vector-square"></i><strong>5,000</strong><span>Sq. Metres</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-file-signature"></i><strong>C of O</strong><span>Title</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-road"></i><strong>Yes</strong><span>Access Road</span></div>
+                </div>
+                <div class="modal-amenities">
+                    <h4>Features & Amenities</h4>
+                    <div class="amenities-list">
+                        <span class="amenity-tag">Prime Location</span>
+                        <span class="amenity-tag">C of O</span>
+                        <span class="amenity-tag">Road Access</span>
+                        <span class="amenity-tag">Utilities Nearby</span>
+                        <span class="amenity-tag">Development Potential</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary">Enquire About This Property</a>
+                    <a href="#" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-6">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-gallery">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Victoria Trade Centre main view">
+                <div class="modal-gallery-side">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Office interior">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" alt="Building view">
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Victoria Trade Centre</h3>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</div>
+                <div class="modal-price">Price on request</div>
+                <p class="modal-description">A well-positioned commercial property in Victoria Island, one of Lagos's premier business districts. Suitable for retail, office or mixed-use purposes, this property offers excellent visibility, accessibility and long-term value for owner-occupiers or investors.</p>
+                <div class="modal-specs-grid">
+                    <div class="modal-spec-item"><i class="fas fa-building"></i><strong>Commercial</strong><span>Type</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-vector-square"></i><strong>4,200</strong><span>Sq. Metres</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-car"></i><strong>35</strong><span>Parking</span></div>
+                    <div class="modal-spec-item"><i class="fas fa-layer-group"></i><strong>3</strong><span>Floors</span></div>
+                </div>
+                <div class="modal-amenities">
+                    <h4>Features & Amenities</h4>
+                    <div class="amenities-list">
+                        <span class="amenity-tag">Prime Location</span>
+                        <span class="amenity-tag">Ample Parking</span>
+                        <span class="amenity-tag">Backup Power</span>
+                        <span class="amenity-tag">Security</span>
+                        <span class="amenity-tag">Flexible Layout</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary">Enquire About This Property</a>
+                    <a href="#" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        (function() {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // ---------- SCROLL REVEAL ----------
+            const revealElements = document.querySelectorAll('.reveal');
+            const staggerElements = document.querySelectorAll('.stagger-children');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+            staggerElements.forEach(el => revealObserver.observe(el));
+
+            // ---------- FILTERING LOGIC ----------
+            const filterCategory = document.getElementById('filterCategory');
+            const filterLocation = document.getElementById('filterLocation');
+            const filterStatus = document.getElementById('filterStatus');
+            const filterPrice = document.getElementById('filterPrice');
+            const filterBedrooms = document.getElementById('filterBedrooms');
+            const btnSearch = document.getElementById('btnSearch');
+            const propertyGrid = document.getElementById('propertyGrid');
+            const propertyCards = propertyGrid.querySelectorAll('.property-card');
+            const noResults = document.getElementById('noResults');
+            const propertiesCount = document.getElementById('propertiesCount');
+
+            function applyFilters() {
+                const cat = filterCategory.value;
+                const loc = filterLocation.value;
+                const stat = filterStatus.value;
+                const price = filterPrice.value;
+                const beds = filterBedrooms.value;
+
+                let visibleCount = 0;
+
+                propertyCards.forEach(card => {
+                    const cardCat = card.dataset.category;
+                    const cardLoc = card.dataset.location;
+                    const cardStat = card.dataset.status;
+                    const cardPrice = card.dataset.price;
+                    const cardBeds = parseInt(card.dataset.bedrooms) || 0;
+
+                    let show = true;
+
+                    if (cat !== 'all' && cardCat !== cat) show = false;
+                    if (loc !== 'all' && cardLoc !== loc) show = false;
+                    if (stat !== 'all' && cardStat !== stat) show = false;
+                    if (price !== 'all' && cardPrice !== price) show = false;
+                    if (beds !== 'all' && cardBeds < parseInt(beds)) show = false;
+
+                    if (show) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    noResults.style.display = 'block';
+                    propertiesCount.textContent = 'No properties match your filters';
+                } else {
+                    noResults.style.display = 'none';
+                    propertiesCount.textContent = `Showing ${visibleCount} propert${visibleCount === 1 ? 'y' : 'ies'}`;
+                }
+            }
+
+            btnSearch.addEventListener('click', applyFilters);
+
+            // Also allow pressing Enter in select elements
+            [filterCategory, filterLocation, filterStatus, filterPrice, filterBedrooms].forEach(select => {
+                select.addEventListener('change', applyFilters);
+            });
+
+            // ---------- MODAL LOGIC ----------
+            const modalOverlays = document.querySelectorAll('.modal-overlay');
+            const propertyCardsAll = document.querySelectorAll('.property-card');
+
+            propertyCardsAll.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Prevent triggering if clicking on a link inside (though cards don't have links)
+                    const modalId = this.dataset.modal;
+                    if (modalId) {
+                        const modal = document.getElementById(modalId);
+                        if (modal) {
+                            modal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                });
+            });
+
+            // Close modal
+            modalOverlays.forEach(overlay => {
+                const closeBtn = overlay.querySelector('.modal-close');
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+                // Close when clicking outside content
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modalOverlays.forEach(overlay => {
+                        if (overlay.classList.contains('active')) {
+                            overlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    });
+                }
+            });
+
+            // Lazy loading for images
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
