@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>About Us — Dominion Real Estate</title>
+    <meta name="description" content="Discover the story, vision, mission and values behind Dominion Real Estate — a premium Nigerian real estate brand redefining how you discover property.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ivory: #F5F0E8;
+            --beige: #DED0BC;
+            --bronze: #A77C50;
+            --charcoal: #292722;
+            --white: #FFFFFF;
+            --stone: #8C8174;
+            --bronze-light: #C29B6E;
+            --transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--ivory);
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--bronze);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            border-bottom: 1px solid rgba(167, 124, 80, 0.3);
+            padding-bottom: 0.4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border: 1.5px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            background: transparent;
+            font-family: 'Manrope', sans-serif;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--bronze);
+            color: var(--white);
+            border-color: var(--bronze);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--bronze);
+            border-color: var(--bronze);
+        }
+
+        .btn-outline {
+            border-color: var(--bronze);
+            color: var(--bronze);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bronze);
+            color: var(--white);
+        }
+
+        .btn-light {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-light:hover {
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* ---------- NAVIGATION (LOGO ONLY + LINKS) ---------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--ivory);
+            box-shadow: var(--shadow-sm);
+            padding: 0.7rem 0;
+        }
+
+        .navbar:not(.scrolled) .nav-links a {
+            color: var(--white);
+            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+        }
+
+        .navbar:not(.scrolled) .menu-toggle {
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--charcoal);
+        }
+
+        .navbar.scrolled .menu-toggle {
+            color: var(--charcoal);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            transition: var(--transition);
+            filter: brightness(0) invert(1);
+        }
+
+        .navbar.scrolled .logo img {
+            filter: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--bronze);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 1rem;
+        }
+
+        .nav-cta .btn-primary {
+            padding: 0.7rem 1.8rem;
+            font-size: 0.8rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* ---------- PAGE HERO (ABOUT) ---------- */
+        .page-hero {
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        .page-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.45) saturate(0.8);
+            pointer-events: none;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(105deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 3;
+            color: var(--white);
+            max-width: 750px;
+            padding: 8rem 0 4rem;
+        }
+
+        .page-hero-content .eyebrow {
+            color: var(--bronze-light);
+            border-bottom-color: rgba(194, 155, 110, 0.5);
+        }
+
+        .page-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* ---------- STORY SECTION ---------- */
+        .story-section {
+            background: var(--ivory);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .story-content h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            font-size: 1.05rem;
+            color: var(--stone);
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+
+        /* ---------- VISION & MISSION ---------- */
+        .vision-mission {
+            background: var(--white);
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .vm-card {
+            padding: 3rem 2.5rem;
+            background: var(--ivory);
+            border-left: 3px solid var(--bronze);
+            transition: var(--transition);
+        }
+
+        .vm-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .vm-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .vm-card p {
+            font-size: 1rem;
+            color: var(--stone);
+            line-height: 1.9;
+        }
+
+        /* ---------- VALUES SECTION ---------- */
+        .values-section {
+            background: var(--beige);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem 1.5rem;
+            border-top: 2px solid var(--bronze);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .value-icon {
+            font-size: 1.8rem;
+            color: var(--bronze);
+            margin-bottom: 1rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* ---------- PHILOSOPHY SECTION ---------- */
+        .philosophy-section {
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .philosophy-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-content .eyebrow {
+            color: var(--bronze-light);
+            border-bottom-color: rgba(194, 155, 110, 0.5);
+        }
+
+        .philosophy-content h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-content p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+
+        /* ---------- CLOSING CTA ---------- */
+        .closing-cta {
+            background: var(--ivory);
+            text-align: center;
+        }
+
+        .closing-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .closing-cta p {
+            font-size: 1.1rem;
+            color: var(--stone);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: var(--charcoal);
+            color: var(--beige);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(222, 208, 188, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: var(--bronze-light);
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer ul a {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer ul a:hover {
+            opacity: 1;
+            color: var(--bronze-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(222, 208, 188, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background: #20b859;
+        }
+
+        /* ---------- SCROLL REVEAL ANIMATIONS ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .story-grid,
+            .vm-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--ivory);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: var(--charcoal) !important;
+                text-shadow: none !important;
+            }
+
+            .navbar:not(.scrolled) .nav-links a {
+                color: var(--charcoal);
+                text-shadow: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar.scrolled .nav-links {
+                background: var(--ivory);
+            }
+
+            .nav-cta {
+                margin-left: 0;
+            }
+
+            .page-hero-content {
+                padding: 6rem 0 3rem;
+            }
+
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .logo img {
+                height: 34px;
+            }
+            .page-hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal,
+            .stagger-children > * {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR — LOGO ONLY + LINKS -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://ik.imagekit.io/nwtyxrcs8/Dominion%20Real%20Estate%20Luxe%20Logo.png" alt="Dominion Real Estate Logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">About</a></li>
+                <li><a href="#">Properties</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="nav-cta"><a href="#" class="btn btn-primary">Enquire Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO (ABOUT) -->
+    <header class="page-hero">
+        <video class="page-hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop">
+            <source src="https://cdn.coverr.co/videos/coverr-a-luxury-house-with-a-pool-1573/1080p.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-modern-house-with-pool-1573/1080p.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="eyebrow">GET TO KNOW DOMINION</span>
+                <h1 class="page-hero-title">Redefining How You Discover Real Estate.</h1>
+                <p class="page-hero-text">We bring together property, perspective and opportunity to create a more considered real estate experience for buyers and investors.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- OUR STORY -->
+    <section class="section story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image reveal">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" alt="Luxury contemporary building with architectural detail">
+                </div>
+                <div class="story-content reveal">
+                    <span class="eyebrow">OUR STORY</span>
+                    <h2>Built Around a Better Vision of Real Estate.</h2>
+                    <p>Dominion Real Estate was established around a simple belief: property decisions deserve thoughtful consideration, professional guidance and a commitment to quality.</p>
+                    <p>We recognise that every property journey is different. For some, it is about finding a home that reflects their aspirations. For others, it is about identifying commercial spaces or investment opportunities that support their ambitions.</p>
+                    <p>Our approach centres on understanding these different needs and connecting clients with property opportunities that align with their goals.</p>
+                    <p>Through a commitment to professionalism, quality and meaningful relationships, Dominion aims to make every property experience more informed and rewarding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section class="section vision-mission">
+        <div class="container">
+            <span class="eyebrow reveal">OUR PURPOSE</span>
+            <h2 class="section-title reveal">Vision and Mission.</h2>
+            <div class="vm-grid stagger-children">
+                <div class="vm-card">
+                    <h3>Our Vision</h3>
+                    <p>To become a respected real estate brand recognised for excellence, integrity and meaningful property opportunities.</p>
+                </div>
+                <div class="vm-card">
+                    <h3>Our Mission</h3>
+                    <p>To connect people and businesses with quality property opportunities through professional service, thoughtful guidance and a commitment to client needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR VALUES -->
+    <section class="section values-section">
+        <div class="container">
+            <span class="eyebrow reveal">THE PRINCIPLES BEHIND EVERY DECISION</span>
+            <h2 class="section-title reveal">Our Values.</h2>
+            <div class="values-grid stagger-children">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Integrity</h4>
+                    <p>We value honesty, transparency and responsible professional conduct.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-gem"></i></div>
+                    <h4>Excellence</h4>
+                    <p>We strive for high standards in our service, communication and property experience.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h4>Client Commitment</h4>
+                    <p>We recognise that every client has different priorities and deserves attentive service.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Innovation</h4>
+                    <p>We embrace better ways of presenting, exploring and engaging with real estate opportunities.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Long-Term Perspective</h4>
+                    <p>We appreciate the lasting importance of property decisions and the relationships behind them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PHILOSOPHY -->
+    <section class="section philosophy-section">
+        <div class="philosophy-bg"></div>
+        <div class="container">
+            <div class="philosophy-content reveal">
+                <span class="eyebrow">OUR PHILOSOPHY</span>
+                <h2>Every Space Has a Purpose. Every Property Has Potential.</h2>
+                <p>We believe great real estate is about understanding what a space can represent.</p>
+                <p>A home can become the foundation for new memories. A commercial property can create room for business growth. An investment can form part of a broader vision for the future.</p>
+                <p>Our role is to help clients explore these possibilities with greater clarity and confidence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="section closing-cta">
+        <div class="container">
+            <span class="eyebrow reveal">EXPERIENCE THE DIFFERENCE</span>
+            <h2 class="reveal">Discover What Sets Dominion Apart.</h2>
+            <p class="reveal">Explore our property opportunities and experience a more considered approach to real estate.</p>
+            <div class="reveal">
+                <a href="#" class="btn btn-primary">Explore Our Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DOMINION REAL ESTATE</h3>
+                    <p>Where exceptional properties meet extraordinary possibilities. Discover distinguished residential and commercial property opportunities with a more thoughtful approach to real estate.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Property Categories</h4>
+                    <ul>
+                        <li><a href="#">Residential</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Investment Opportunities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">+234 (0) 123 456 7890</a></li>
+                        <li><a href="#">info@dominionrealestate.com</a></li>
+                        <li><a href="#">Lagos, Nigeria</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Dominion Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="#" class="whatsapp-float" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        (function() {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // ---------- SCROLL REVEAL ANIMATIONS ----------
+            const revealElements = document.querySelectorAll('.reveal');
+            const staggerElements = document.querySelectorAll('.stagger-children');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+            staggerElements.forEach(el => revealObserver.observe(el));
+
+            // Lazy loading for images
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
