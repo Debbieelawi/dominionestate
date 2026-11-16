@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Contact — Dominion Real Estate</title>
+    <meta name="description" content="Get in touch with Dominion Real Estate. Enquire about residential, commercial or investment property opportunities in Nigeria.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ivory: #F5F0E8;
+            --beige: #DED0BC;
+            --bronze: #A77C50;
+            --charcoal: #292722;
+            --white: #FFFFFF;
+            --stone: #8C8174;
+            --bronze-light: #C29B6E;
+            --transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--ivory);
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--bronze);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            border-bottom: 1px solid rgba(167, 124, 80, 0.3);
+            padding-bottom: 0.4rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border: 1.5px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            background: transparent;
+            font-family: 'Manrope', sans-serif;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--bronze);
+            color: var(--white);
+            border-color: var(--bronze);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--bronze);
+            border-color: var(--bronze);
+        }
+
+        .btn-outline {
+            border-color: var(--bronze);
+            color: var(--bronze);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bronze);
+            color: var(--white);
+        }
+
+        .btn-light {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-light:hover {
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* ---------- NAVIGATION ---------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--ivory);
+            box-shadow: var(--shadow-sm);
+            padding: 0.7rem 0;
+        }
+
+        .navbar:not(.scrolled) .nav-links a {
+            color: var(--white);
+            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+        }
+
+        .navbar:not(.scrolled) .menu-toggle {
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--charcoal);
+        }
+
+        .navbar.scrolled .menu-toggle {
+            color: var(--charcoal);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            transition: var(--transition);
+            filter: brightness(0) invert(1);
+        }
+
+        .navbar.scrolled .logo img {
+            filter: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--bronze);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 1rem;
+        }
+
+        .nav-cta .btn-primary {
+            padding: 0.7rem 1.8rem;
+            font-size: 0.8rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        /* ---------- PAGE HERO ---------- */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        .page-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.4) saturate(0.8);
+            pointer-events: none;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(105deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 3;
+            color: var(--white);
+            max-width: 750px;
+            padding: 8rem 0 4rem;
+        }
+
+        .page-hero-content .eyebrow {
+            color: var(--bronze-light);
+            border-bottom-color: rgba(194, 155, 110, 0.5);
+        }
+
+        .page-hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-hero-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* ---------- CONTACT OPTIONS ---------- */
+        .contact-options {
+            background: var(--white);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .option-card {
+            padding: 2.5rem 2rem;
+            background: var(--ivory);
+            border-top: 2px solid var(--bronze);
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .option-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .option-icon {
+            font-size: 2rem;
+            color: var(--bronze);
+            margin-bottom: 1.2rem;
+        }
+
+        .option-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .option-card p {
+            font-size: 0.95rem;
+            color: var(--stone);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .option-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bronze);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .option-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .option-card:hover .option-link i {
+            transform: translateX(6px);
+        }
+
+        /* ---------- CONTACT FORM SECTION ---------- */
+        .contact-form-section {
+            background: var(--ivory);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .form-intro {
+            padding-right: 2rem;
+        }
+
+        .form-intro h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-intro p {
+            font-size: 1rem;
+            color: var(--stone);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .form-details {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .form-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        .form-details i {
+            color: var(--bronze);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+
+        .form-details strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--charcoal);
+        }
+
+        .form-details span {
+            color: var(--stone);
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            color: var(--stone);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(140, 129, 116, 0.3);
+            background: var(--ivory);
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            border-radius: 2px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--bronze);
+            box-shadow: 0 0 0 3px rgba(167, 124, 80, 0.1);
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bronze);
+            color: var(--white);
+            border: 1.5px solid var(--bronze);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Manrope', sans-serif;
+            border-radius: 2px;
+            margin-top: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            background: transparent;
+            color: var(--bronze);
+        }
+
+        .form-success {
+            display: none;
+            background: rgba(167, 124, 80, 0.1);
+            border-left: 3px solid var(--bronze);
+            padding: 1.2rem 1.5rem;
+            margin-top: 1.2rem;
+            border-radius: 2px;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .form-success.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------- CONTACT DETAILS / MAP ---------- */
+        .contact-details-section {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 6rem 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .details-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .details-content p {
+            font-size: 1.05rem;
+            opacity: 0.8;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .details-list {
+            list-style: none;
+        }
+
+        .details-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .details-list i {
+            color: var(--bronze-light);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .details-list strong {
+            display: block;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .map-placeholder {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--charcoal);
+            border: 1px solid rgba(222, 208, 188, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(41, 39, 34, 0.55);
+        }
+
+        .map-overlay i {
+            font-size: 2.5rem;
+            color: var(--bronze-light);
+            margin-bottom: 1rem;
+        }
+
+        .map-overlay h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .map-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            max-width: 300px;
+        }
+
+        /* ---------- CLOSING CTA ---------- */
+        .closing-cta {
+            background: var(--beige);
+            text-align: center;
+        }
+
+        .closing-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .closing-cta p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: var(--charcoal);
+            color: var(--beige);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(222, 208, 188, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: var(--bronze-light);
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer ul a {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer ul a:hover {
+            opacity: 1;
+            color: var(--bronze-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(222, 208, 188, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background: #20b859;
+        }
+
+        /* ---------- SCROLL REVEAL ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .form-intro {
+                padding-right: 0;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--ivory);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: var(--charcoal) !important;
+                text-shadow: none !important;
+            }
+
+            .navbar:not(.scrolled) .nav-links a {
+                color: var(--charcoal);
+                text-shadow: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar.scrolled .nav-links {
+                background: var(--ivory);
+            }
+
+            .nav-cta {
+                margin-left: 0;
+            }
+
+            .page-hero-content {
+                padding: 6rem 0 3rem;
+            }
+
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .logo img {
+                height: 34px;
+            }
+            .page-hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal,
+            .stagger-children > * {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://ik.imagekit.io/nwtyxrcs8/Dominion%20Real%20Estate%20Luxe%20Logo.png" alt="Dominion Real Estate Logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Properties</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#" class="active">Contact</a></li>
+                <li class="nav-cta"><a href="#" class="btn btn-primary">Enquire Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+        <video class="page-hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop">
+            <source src="https://cdn.coverr.co/videos/coverr-a-luxury-house-with-a-pool-1573/1080p.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-modern-house-with-pool-1573/1080p.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="page-hero-overlay"></div>
+        <div class="container">
+            <div class="page-hero-content">
+                <span class="eyebrow">START A CONVERSATION</span>
+                <h1 class="page-hero-title">Let's Make Your Next Property Move Count.</h1>
+                <p class="page-hero-text">Whether you have a property in mind, are exploring investment opportunities or simply want to understand your options, we're ready to hear from you.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTACT OPTIONS -->
+    <section class="section contact-options">
+        <div class="container">
+            <span class="eyebrow reveal">HOW WE CAN HELP</span>
+            <h2 class="section-title reveal">Get in Touch.</h2>
+            <div class="options-grid stagger-children">
+                <div class="option-card">
+                    <div class="option-icon"><i class="fas fa-home"></i></div>
+                    <h3>Property Enquiries</h3>
+                    <p>Looking to buy or explore a property? Tell us what you have in mind.</p>
+                    <span class="option-link">Enquire Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Investment Enquiries</h3>
+                    <p>Interested in exploring real estate investment opportunities? Let's discuss your objectives.</p>
+                    <span class="option-link">Enquire Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="option-card">
+                    <div class="option-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>General Enquiries</h3>
+                    <p>For partnerships, business enquiries and other questions, connect with our team.</p>
+                    <span class="option-link">Enquire Now <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="section contact-form-section">
+        <div class="container">
+            <span class="eyebrow reveal">SEND US A MESSAGE</span>
+            <h2 class="section-title reveal">Tell Us What You're Looking For.</h2>
+            <div class="form-grid">
+                <div class="form-intro reveal">
+                    <h3>We're Here to Listen.</h3>
+                    <p>Share your requirements and our team will review your enquiry and respond with relevant information. Whether you're buying, investing or simply exploring possibilities, we're ready to assist.</p>
+                    <ul class="form-details">
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Call Us</strong>
+                                <span>+234 (0) 123 456 7890</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email Us</strong>
+                                <span>info@dominionrealestate.com</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Visit Us</strong>
+                                <span>Lagos, Nigeria</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>Available during business hours</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+234 ...">
+                            </div>
+                            <div class="form-group">
+                                <label for="enquiryType">Enquiry Type *</label>
+                                <select id="enquiryType" name="enquiryType" required>
+                                    <option value="" disabled selected>Select enquiry type</option>
+                                    <option value="residential">Residential Property</option>
+                                    <option value="commercial">Commercial Property</option>
+                                    <option value="investment">Property Investment</option>
+                                    <option value="acquisition">Property Acquisition</option>
+                                    <option value="other">Other Enquiry</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredLocation">Preferred Location</label>
+                                <input type="text" id="preferredLocation" name="preferredLocation" placeholder="e.g. Lagos, Abuja">
+                            </div>
+                            <div class="form-group">
+                                <label for="budgetRange">Budget Range (Optional)</label>
+                                <select id="budgetRange" name="budgetRange">
+                                    <option value="" selected>Select budget range</option>
+                                    <option value="under-100m">Under ₦100M</option>
+                                    <option value="100m-300m">₦100M – ₦300M</option>
+                                    <option value="300m-600m">₦300M – ₦600M</option>
+                                    <option value="above-600m">Above ₦600M</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Enquiry</button>
+                        <div class="form-success" id="formSuccess">
+                            Thank you for contacting Dominion Real Estate. Your enquiry has been received. Our team will review your message and get back to you.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT DETAILS / MAP -->
+    <section class="contact-details-section">
+        <div class="container">
+            <div class="details-grid">
+                <div class="details-content reveal">
+                    <span class="eyebrow" style="color:var(--bronze-light); border-bottom-color:rgba(194,155,110,0.4);">VISIT OR CALL</span>
+                    <h2>We're Here to Help.</h2>
+                    <p>Reach out through any of the channels below. Our team is available to answer your questions and guide you through your property journey.</p>
+                    <ul class="details-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Office Address</strong>
+                                <span>Add verified company address</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Telephone</strong>
+                                <span>+234 (0) 123 456 7890</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <span>info@dominionrealestate.com</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>Add official WhatsApp link</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Business Hours</strong>
+                                <span>Monday – Friday, 9:00 AM – 6:00 PM</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="map-placeholder reveal">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=2069&auto=format&fit=crop" alt="Map location placeholder">
+                    <div class="map-overlay">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4>Map Coming Soon</h4>
+                        <p>Our interactive office map will be available once the official address is confirmed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="section closing-cta">
+        <div class="container">
+            <span class="eyebrow reveal">EVERY GREAT JOURNEY STARTS SOMEWHERE</span>
+            <h2 class="reveal">Every Great Property Journey Starts With a Conversation.</h2>
+            <p class="reveal">Let's explore the possibilities together.</p>
+            <div class="reveal">
+                <a href="#" class="btn btn-primary">Contact Dominion Real Estate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DOMINION REAL ESTATE</h3>
+                    <p>Where exceptional properties meet extraordinary possibilities. Discover distinguished residential and commercial property opportunities with a more thoughtful approach to real estate.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Property Categories</h4>
+                    <ul>
+                        <li><a href="#">Residential</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Investment Opportunities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">+234 (0) 123 456 7890</a></li>
+                        <li><a href="#">info@dominionrealestate.com</a></li>
+                        <li><a href="#">Lagos, Nigeria</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Dominion Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="#" class="whatsapp-float" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        (function() {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // ---------- SCROLL REVEAL ----------
+            const revealElements = document.querySelectorAll('.reveal');
+            const staggerElements = document.querySelectorAll('.stagger-children');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+            staggerElements.forEach(el => revealObserver.observe(el));
+
+            // ---------- CONTACT FORM ----------
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic validation
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const enquiryType = document.getElementById('enquiryType').value;
+                const message = document.getElementById('message').value.trim();
+
+                let isValid = true;
+
+                // Reset styles
+                [document.getElementById('fullName'), document.getElementById('email'),
+                 document.getElementById('enquiryType'), document.getElementById('message')].forEach(el => {
+                    el.style.borderColor = '';
+                });
+
+                if (!fullName) {
+                    document.getElementById('fullName').style.borderColor = '#c0392b';
+                    isValid = false;
+                }
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email').style.borderColor = '#c0392b';
+                    isValid = false;
+                }
+                if (!enquiryType) {
+                    document.getElementById('enquiryType').style.borderColor = '#c0392b';
+                    isValid = false;
+                }
+                if (!message) {
+                    document.getElementById('message').style.borderColor = '#c0392b';
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    return;
+                }
+
+                // Simulate successful submission
+                const submitBtn = contactForm.querySelector('.btn-submit');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    contactForm.reset();
+                    formSuccess.classList.add('show');
+
+                    // Hide success message after 8 seconds
+                    setTimeout(() => {
+                        formSuccess.classList.remove('show');
+                    }, 8000);
+                }, 1200);
+            });
+
+            // Lazy loading for images
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
